@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetLocator : MonoBehaviour
+public class TargetLocatorAlly : MonoBehaviour
 {
     [SerializeField] Transform weapon;
     [SerializeField] ParticleSystem projectileParticles;
@@ -34,11 +34,11 @@ public class TargetLocator : MonoBehaviour
 
     void FindClosestTarget()
     {
-        AllyMover[] tanks = FindObjectsOfType<AllyMover>();
+        EnemyMover[] tanks = FindObjectsOfType<EnemyMover>();
         Transform closestTarget = null;
         float maxDistance = Mathf.Infinity;
 
-        foreach(AllyMover tank in tanks)
+        foreach(EnemyMover tank in tanks)
         {
             float targetDistance = Vector3.Distance(transform.position, tank.transform.position);
 
